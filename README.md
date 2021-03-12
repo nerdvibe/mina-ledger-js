@@ -1,4 +1,4 @@
-# Ledger Mina JS
+# Mina Ledger JS
 <p align="center"> 
   <img src="https://westake.club/assets/minaledgerjs.png">
 </p>
