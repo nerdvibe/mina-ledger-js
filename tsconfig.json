@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2020", "dom"]
+  },
+  "exclude": ["node_modules"]
+}
