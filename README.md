@@ -16,7 +16,7 @@ and a transporter of your choice. For node: `@ledgerhq/hw-transport-node-hid`
 
 ## Usage
 
-```
+```javascript
 import { MinaLedgerJS } from "mina-ledger-js";
 import TransportNodeHid from "@ledgerhq/hw-transport-node-hid";
 
