@@ -65,5 +65,5 @@ export enum Networks {
 
 export enum TxType {
   PAYMENT = 0x00,
-  DELEGATION = 0x01,
+  DELEGATION = 0x04,
 }

@@ -79,6 +79,7 @@ export class MinaLedgerJS {
     const tagHex = this.pad(txType.toString(16), 2);
     const networkIdHex = this.pad(networkId, 2);
 
+    // Uncomment for debug
     // console.log("senderBip44AccountHex", senderBip44AccountHex);
     // console.log("senderAddressHex", senderAddressHex);
     // console.log("receiverHex", receiverHex);
@@ -102,7 +103,9 @@ export class MinaLedgerJS {
       tagHex +
       networkIdHex;
 
+    // Uncomment for debug
     // console.log(apduMessage);
+    // console.log('length: ', apduMessage.length);
 
     return apduMessage;
   }
@@ -224,18 +227,6 @@ export class MinaLedgerJS {
       };
     }
 
-    // console.log(
-    //   txType,
-    //   senderAccount,
-    //   senderAddress,
-    //   receiverAddress,
-    //   amount,
-    //   fee,
-    //   nonce,
-    //   validUntil,
-    //   memo,
-    //   networkId
-    // );
     const apdu = this.createTXApdu({
       txType,
       senderAccount,
