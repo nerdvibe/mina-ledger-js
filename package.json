@@ -29,7 +29,6 @@
     "build": "tsc --outDir dist/"
   },
   "dependencies": {
-    "@ledgerhq/hw-transport-node-hid": "^5.45.0",
     "buffer": "^6.0.3"
   },
   "devDependencies": {
