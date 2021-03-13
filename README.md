@@ -2,7 +2,8 @@
 <p align="center"> 
   <img src="https://westake.club/assets/minaledgerjs.png">
 </p>
-This package provides a client library to communicate with [ledger-app-mina](https://github.com/jspada/ledger-app-mina) running in a Ledger Nano S/X.
+
+This package provides a client library to communicate with [ledger-app-mina](https://github.com/jspada/ledger-app-mina) running on the Ledger Nano S/X.
 
 ## Install
 
