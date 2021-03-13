@@ -48,6 +48,15 @@ const version = await instance.getAppVersion();
 console.log(version);
 ```
 
+### `getAppName`
+
+Returns the name and version of the running ledger app (any ledger app). Useful for checking if the user is using the right app, or for ping purposes.
+
+```javascript
+const nameVersion = await instance.getAppName();
+console.log(nameVersion);
+```
+
 ### `getAddress`
 
 Returns the public key for the given account.
@@ -79,6 +88,10 @@ console.log(signature);
 ## Types
 
 See `src/types.ts`
+
+## Example
+
+On node: Open the ledger-app-mina and run `npx ts-node example/index.ts` to see the methods running.
 
 ## Thanks
 

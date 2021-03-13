@@ -4,11 +4,16 @@ import {
   Transport,
   SignTransactionResponse,
   GetAddressResponse,
-  GetAppVersionesponse,
+  GetAppVersionResponse,
+  GetAppNameResponse,
 } from "./types";
 import { Buffer } from "buffer/";
-const CLA = 0xe0;
-const INS = {
+const CLA_LEDGER = 0xb0;
+const INS_LEDGER = {
+  GET_NAME_VERSION: 0x01,
+};
+const CLA_APP = 0xe0;
+const INS_APP = {
   GET_VERSION: 0x01,
   GET_ADDR: 0x02,
   SIGN: 0x03,
@@ -118,7 +123,7 @@ export class MinaLedgerJS {
    * @return an object with a publicKey
    * @example
    * const result = await Mina.getAddress(1);
-   * const { publicKey, address, returnCode } = result;
+   * const { publicKey, returnCode } = result;
    */
   async getAddress(account: number =0): Promise<GetAddressResponse> {
     if (!Number.isInteger(account)) {
@@ -138,8 +143,8 @@ export class MinaLedgerJS {
 
     try {
       const response = await this.transport.send(
-        CLA,
-        INS.GET_ADDR,
+        CLA_APP,
+        INS_APP.GET_ADDR,
         p1,
         p2,
         accountBuffer,
@@ -255,8 +260,8 @@ export class MinaLedgerJS {
 
     try {
       const response = await this.transport.send(
-        CLA,
-        INS.SIGN,
+        CLA_APP,
+        INS_APP.SIGN,
         p1,
         p2,
         apduBuffer,
@@ -284,16 +289,19 @@ export class MinaLedgerJS {
 
   /**
    * get the version of the Mina app installed on the hardware device
+   * the version is returned from the installed app.
    *
    * @return an object with a version
    */
-  async getAppVersion(): Promise<GetAppVersionesponse> {
+  async getAppVersion(): Promise<GetAppVersionResponse> {
     try {
+      const p1 = 0x00;
+      const p2 = 0x00;
       const response = await this.transport.send(
-        CLA,
-        INS.GET_VERSION,
-        0x00,
-        0x00
+        CLA_APP,
+        INS_APP.GET_VERSION,
+        p1,
+        p2
       );
       const versionRaw = response.slice(0, response.length - 2).toString("hex");
       const version =
@@ -304,6 +312,44 @@ export class MinaLedgerJS {
 
       return {
         version,
+        returnCode,
+      };
+    } catch (e) {
+      return {
+        version: null,
+        returnCode: e.statusCode,
+        message: e.message,
+        statusText: e.statusText,
+      };
+    }
+  }
+
+  /**
+   * get the name and version of the Mina app installed on the hardware device
+   * it can be used to ping the app and know the name of the running app.
+   * The name and version is returned from the Ledger firmware.
+   *
+   * @return an object with an app name and version
+   */
+  async getAppName(): Promise<GetAppNameResponse> {
+    try {
+      const p1 = 0x00;
+      const p2 = 0x00;
+      const response = await this.transport.send(
+        CLA_LEDGER,
+        INS_LEDGER.GET_NAME_VERSION,
+        p1,
+        p2
+      );
+
+      const returnCode = response.slice(response.length - 2, response.length).toString("hex");
+      const separatorPosition = response.indexOf(0x05)
+      const name = response.slice(2, separatorPosition).toString('ascii');
+      const version = response.slice(separatorPosition + 1, response.length - 4).toString('utf-8');
+
+      return {
+        name, // Mina
+        version, // 1.0.0
         returnCode,
       };
     } catch (e) {

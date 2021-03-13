@@ -54,7 +54,11 @@ export interface GetAddressResponse extends BaseLedgerResponse {
 export interface SignTransactionResponse extends BaseLedgerResponse {
   signature?: string;
 }
-export interface GetAppVersionesponse extends BaseLedgerResponse {
+export interface GetAppVersionResponse extends BaseLedgerResponse {
+  version?: string;
+
+}export interface GetAppNameResponse extends BaseLedgerResponse {
+  name?: string;
   version?: string;
 }
 
