@@ -22,8 +22,8 @@ import { MinaLedgerJS } from "mina-ledger-js";
 import TransportNodeHid from "@ledgerhq/hw-transport-node-hid";
 
 (async () => {
-  const transport = await transportMethod.create();
-  const instance = new MinaLedgerJS(transpoort);
+  const transport = await TransportNodeHid.create();
+  const instance = new MinaLedgerJS(transport);
 
   const response = await instance.getAppVersion();
   console.log(`Installed version is ${response.version}`);
