@@ -151,7 +151,7 @@ export class MinaLedgerJS {
         statusList
       );
 
-      const publicKey = response.slice(0, response.length - 2).toString();
+      const publicKey = response.slice(0, response.length - 3).toString();
       const returnCode = response
         .slice(response.length - 2, response.length)
         .toString("hex");
@@ -171,7 +171,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         publicKey: null,
-        returnCode: e.statusCode,
+        returnCode: e.statusCode.toString(),
         message: e.message,
         statusText: e.statusText,
       };
@@ -280,7 +280,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         signature: null,
-        returnCode: e.statusCode,
+        returnCode: e.statusCode.toString(),
         message: e.message,
         statusText: e.statusText,
       };
@@ -317,7 +317,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         version: null,
-        returnCode: e.statusCode,
+        returnCode: e.statusCode.toString(),
         message: e.message,
         statusText: e.statusText,
       };
@@ -355,7 +355,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         version: null,
-        returnCode: e.statusCode,
+        returnCode: e.statusCode.toString(),
         message: e.message,
         statusText: e.statusText,
       };

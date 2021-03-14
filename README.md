@@ -93,7 +93,7 @@ See `src/types.ts`
 ## Example
 
 On node: Open the ledger-app-mina on the Ledger device and run `npm install @ledgerhq/hw-transport-node-hid && npx ts-node example/index.ts` to see the methods running.
-Note, this will add `@ledgerhq/hw-transport-node-hid` to the package.json. Do not commit this change. This is just for example purposes.
+Note, this will add `@ledgerhq/hw-transport-node-hid-singleton` to the package.json. Do not commit this change. This is just for example purposes.
 
 ## Thanks
 
