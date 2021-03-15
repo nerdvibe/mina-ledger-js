@@ -156,6 +156,9 @@ export class MinaLedgerJS {
         .slice(response.length - 2, response.length)
         .toString("hex");
 
+        console.log('yo0', response)
+        console.log('yo?', returnCode)
+
       if (returnCode !== SW_OK.toString(16)) {
         throw {
           returnCode: returnCode,
@@ -171,7 +174,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         publicKey: null,
-        returnCode: e.statusCode.toString(),
+        returnCode: e.returnCode?.toString() || '5000',
         message: e.message,
         statusText: e.statusText,
       };
@@ -317,7 +320,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         version: null,
-        returnCode: e.statusCode.toString(),
+        returnCode: e.statusCode?.toString() || '5000',
         message: e.message,
         statusText: e.statusText,
       };
@@ -355,7 +358,7 @@ export class MinaLedgerJS {
     } catch (e) {
       return {
         version: null,
-        returnCode: e.statusCode.toString(),
+        returnCode: e.statusCode?.toString() || "5000",
         message: e.message,
         statusText: e.statusText,
       };
