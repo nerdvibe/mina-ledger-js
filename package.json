@@ -26,7 +26,8 @@
   },
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "build": "tsc --outDir dist/"
+    "build": "tsc --outDir dist/",
+    "test": "echo \"No test specified for now\""
   },
   "dependencies": {
     "buffer": "6.0.3"
