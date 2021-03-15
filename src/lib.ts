@@ -156,9 +156,6 @@ export class MinaLedgerJS {
         .slice(response.length - 2, response.length)
         .toString("hex");
 
-        console.log('yo0', response)
-        console.log('yo?', returnCode)
-
       if (returnCode !== SW_OK.toString(16)) {
         throw {
           returnCode: returnCode,
