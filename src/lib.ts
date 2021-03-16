@@ -78,7 +78,7 @@ export class MinaLedgerJS {
     const receiverHex = this.asciiToHex(receiverAddress);
     const amountHex = this.pad(amount.toString(16), 16);
     const feeHex = this.pad(fee.toString(16), 16);
-    const nonceHex = this.pad(nonce, 8);
+    const nonceHex = this.pad(Number(nonce).toString(16).toUpperCase(), 8);
     const validUntilHex = this.pad(validUntil.toString(16), 8);
     const memoHex = this.convertMemo(memo);
     const tagHex = this.pad(txType.toString(16), 2);
