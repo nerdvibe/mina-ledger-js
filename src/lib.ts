@@ -73,7 +73,7 @@ export class MinaLedgerJS {
     memo = "",
     networkId,
   }: SignTransactionArgs) {
-    const senderBip44AccountHex = this.pad(senderAccount, 8);
+    const senderBip44AccountHex = this.pad(senderAccount.toString(16), 8);
     const senderAddressHex = this.asciiToHex(senderAddress);
     const receiverHex = this.asciiToHex(receiverAddress);
     const amountHex = this.pad(amount.toString(16), 16);

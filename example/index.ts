@@ -6,7 +6,7 @@ const getAppVersion = async (instance: any) => {
   console.log(version);
 };
 const getAddress = async (instance: any) => {
-  const address = await instance.getAddress(0);
+  const address = await instance.getAddress(42);
   console.log(address);
 };
 const getNameVersion = async (instance: any) => {
@@ -15,12 +15,12 @@ const getNameVersion = async (instance: any) => {
 };
 const getSignature = async (instance: any) => {
   const signature = await instance.signTransaction({
-    "senderAccount": 0,
-    "senderAddress": "B62qoBEWahYw3CzeFLBkekmT8B7Z1YsfhNcP32cantDgApQ97RNUMhT",
+    "senderAccount": 42,
+    "senderAddress": "B62qr9pMrhSwBA6txJ8kD3f9GZ3VQPoUaFnKhEosdJmnZXXKj6qhkGF",
     "receiverAddress": "B62qkEB9FPhBs9mYdPJPVkUevrJuYr22MwANNvavy6HWZEDqL8WKR3F",
     "fee": +"98146290",
     "amount": +"1000000000",
-    "memo": "hub <3 ledger!",
+    "memo": "clorio <3 ledger!",
     "nonce": 2,
     "txType": 0,
     "networkId": 0,
