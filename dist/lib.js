@@ -94,16 +94,16 @@ var MinaLedgerJS = /** @class */ (function () {
         var tagHex = this.pad(txType.toString(16), 2);
         var networkIdHex = this.pad(networkId, 2);
         // Uncomment for debug
-        console.log("senderBip44AccountHex", senderBip44AccountHex);
-        console.log("senderAddressHex", senderAddressHex);
-        console.log("receiverHex", receiverHex);
-        console.log("amountHex", amountHex);
-        console.log("feeHex", feeHex);
-        console.log("nonceHex", nonceHex);
-        console.log("validUntilHex", validUntilHex);
-        console.log("memoHex", memoHex);
-        console.log("tagHex", tagHex);
-        console.log("networkIdHex", networkIdHex);
+        // console.log("senderBip44AccountHex", senderBip44AccountHex);
+        // console.log("senderAddressHex", senderAddressHex);
+        // console.log("receiverHex", receiverHex);
+        // console.log("amountHex", amountHex);
+        // console.log("feeHex", feeHex);
+        // console.log("nonceHex", nonceHex);
+        // console.log("validUntilHex", validUntilHex);
+        // console.log("memoHex", memoHex);
+        // console.log("tagHex", tagHex);
+        // console.log("networkIdHex", networkIdHex);
         var apduMessage = senderBip44AccountHex +
             senderAddressHex +
             receiverHex +
@@ -115,8 +115,8 @@ var MinaLedgerJS = /** @class */ (function () {
             tagHex +
             networkIdHex;
         // Uncomment for debug
-        console.log(apduMessage);
-        console.log('length: ', apduMessage.length);
+        // console.log(apduMessage);
+        // console.log('length: ', apduMessage.length);
         return apduMessage;
     };
     /**
