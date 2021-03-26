@@ -1,6 +1,6 @@
 {
   "name": "mina-ledger-js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JS API for Mina App (Ledger Nano S/X)",
   "license": "Apache-2.0",
   "author": "Carbonara <gh@carbonara.science>",
