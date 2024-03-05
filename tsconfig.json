@@ -10,5 +10,5 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es2020", "dom"]
   },
-  "exclude": ["node_modules", "example"]
+  "exclude": ["node_modules", "example", "dist"]
 }

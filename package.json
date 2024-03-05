@@ -15,6 +15,13 @@
   },
   "homepage": "https://github.com/nerdvibe/mina-ledger-js",
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nerdvibe/mina-ledger-js.git"
@@ -26,7 +33,7 @@
   },
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "build": "tsc --outDir dist/",
+    "build": "tsc --outDir dist/ --declaration",
     "test": "echo \"No test specified for now\""
   },
   "dependencies": {
