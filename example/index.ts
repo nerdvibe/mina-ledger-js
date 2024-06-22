@@ -1,5 +1,5 @@
 import TransportNodeHid from "@ledgerhq/hw-transport-node-hid-singleton";
-import { MinaLedgerJS, Networks, TxType } from "../src/";
+import { MinaLedgerJS, Networks, TxType, isValidAddress } from "../src/";
 
 const getAppVersion = async (instance: any) => {
   const version = await instance.getAppVersion();
@@ -42,13 +42,17 @@ const getDelegation = async (instance: any) => {
   });
   console.log(signature);
 };
+const validateAddress = () => {
+  const isValid = isValidAddress("B62qr9pMrhSwBA6txJ8kD3f9GZ3VQPoUaFnKhEosdJmnZXXKj6qhkGF");
+  console.log(isValid);
+}
 
 (async () => {
 
-  console.log(` 
-  
+  console.log(`
+
   >> mina-ledger-js usage example on Node:
-  
+
   `)
 
   const transport = await TransportNodeHid.create();
@@ -58,4 +62,5 @@ const getDelegation = async (instance: any) => {
   await getAddress(instance);
   await getDelegation(instance);
   await getSignature(instance);
+  validateAddress();
 })();
